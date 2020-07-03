@@ -1,0 +1,16 @@
+schemaType: Instance Metadata
+kind: VPC Policy
+metadata: {name: freight-trust:policy-cloud-vpc }
+  name: freight-trust-vpc-policy
+  namespace: meta
+spec:
+  destination:
+    vpc: 
+    policy: instance
+  provider: aws
+  source:
+    regex: '(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})'
+    description: CIDR for VPC and Subnets
+    services:
+      - VPC
+      - Subnets

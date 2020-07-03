@@ -1,0 +1,15 @@
+schemaType: Verification Policy
+kind: IAM Policy
+metadata: {name: freight-trust:policy-email }
+  name: freight-trust-email-policy
+  namespace: policy
+spec:
+  destination:
+    iam: 
+    policy: email
+  provider: aws
+  source:
+    regex: '^[_A-Za-z0-9-\+\.]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$'
+    services:
+      - CognitoAdminEmail
+      - DomainAdminEmail

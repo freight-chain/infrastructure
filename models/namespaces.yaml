@@ -1,0 +1,14 @@
+---
+schemaType: infrastructure-namespace
+kind: Namespace
+metadata: {name: freight-trust:namespaces }
+  name: freight-trust-urn
+  namespace: urn
+spec:
+  destination:
+    namespace: 
+    policy: default
+  provider: aws
+  source:
+    regex: 'arn:aws:es:${AWS::Region}:${AWS::AccountId}:domain/${DOMAINNAME}/*'
+    targetRevision: 1.0.0
