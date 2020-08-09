@@ -1,0 +1,74 @@
+ltsp (19.11-1) unstable; urgency=low
+
+  * Prefer external ltsp-binaries package, fall back to ipxe (#49)
+  * Don't exclude /snap (#63)
+  * Make RELOGIN work in lightdm (#58)
+  * Remove HOSTNAME_PREFIX and _SUFFIX (#57)
+  * Enable ltsp.service with compat=10
+  * Amend AUTOLOGIN/PASSWORDS_x example (#58)
+  * Use SOURCE_DATE_EPOCH to set the date when generating man pages
+  * Command line parameters take precedence over ltsp.conf
+  * Default to OVERWRITE=1 (#53)
+  * Fix ltsp.conf manpage online rendering
+
+ -- Alkis Georgopoulos <alkisg@gmail.com>  Mon, 11 Nov 2019 09:52:19 +0200
+
+ltsp (19.10-1) experimental; urgency=medium
+
+  [ Alkis Georgopoulos ]
+  * Correct typo, x64_32 => x86_32
+  * Enhance install/base64 commands in ltsp.conf
+  * Use x86_32 in iPXE for all x86 32bit variants
+  * Avoid dd/swap boot block on small extended partitions
+  * Use no_root_squash for NFS3 (#25)
+  * Use timeo=600 to avoid nfsmount lags (#27)
+  * Use rsize=32768,wsize=32768 instead of timeo=600 (#27)
+  * Use commas in ltsp-dnsmasq.conf dns-server option (#28)
+  * Avoid `ltsp dnsmasq` failing on multiple proxy subnets (#30)
+  * Set read_ahead_kb=4 for network mounts (#27)
+  * Blacklist floppy module (#32)
+  * Make user accounts available before 55-
+  * Customize the greeter user list (#33)
+  * Avoid section_list: not found warning (#36)
+  * Correctly set _NL
+  * Add dhcpcd to MASK_SYSTEM_SERVICES
+
+  [ DI FH Markus Kienast ]
+  * Fix PWMERGE_(SGR|DUR|DGR) (#42)
+
+  [ Alkis Georgopoulos ]
+  * Make snaps run (#44)
+
+  [ Vagrant Cascadian ]
+  * docs/ltsp.conf.5.md: Fix spelling of "loosely".
+  * debian/control:
+    - Build-Depends: Prefer "ronn" over "ruby-ronn".
+    - Update Standards-Version to 4.4.1.
+    - Set Rules-Requires-Root to "no".
+  * debian/rules:
+    - Override dh_installinit to not add init script snippets.
+    - Copy ltsp.service file into debian/ and to allow dh_installsystemd
+      to work correctly.
+  * Fix typo in ltsp-initrd man page.
+  * Fix debian/watch file.
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Sat, 19 Oct 2019 13:23:20 -0700
+
+ltsp (19.09-1) unstable; urgency=low
+
+  * Customize ltsp.ipxe from ltsp.conf parameters (#14)
+  * Introduce ltsp service, enable NAT, disable flow control (#13)
+  * Support Ubuntu and Debian live isos as bootable images
+  * Implement autologin and passwordless logins
+  * Generate a xorg.conf from ltsp.conf parameters
+  * Implement LOCAL_SWAP
+  * Fix various issues, inside and outside LTSP
+
+ -- Alkis Georgopoulos <alkisg@gmail.com>  Mon, 02 Sep 2019 20:46:26 +0300
+
+ltsp (19.08-1) unstable; urgency=low
+
+  * Import the new LTSP codebase from https://github.com/eellak/gsoc2019-ltsp.
+    With many thanks to GSoC, ellak.gr and the mentors!
+
+ -- Alkis Georgopoulos <alkisg@gmail.com>  Sun, 18 Aug 2019 12:34:56 +0300
